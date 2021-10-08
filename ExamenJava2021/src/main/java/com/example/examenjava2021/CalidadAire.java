@@ -1,8 +1,10 @@
 package com.example.examenjava2021;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class CalidadAire {
@@ -27,5 +29,23 @@ public class CalidadAire {
         }
         System.out.println(conjuntoValores.toString());
         System.out.println(conjuntoValores.size() + " medidas diferentes ppm de CO2 en las aulas");
+
+        Map<String, Integer> mapa = new HashMap<>();
+        int contadorAula9 = 0, contadorElectronica = 0, contadorTelematica= 0;
+        for (int i = 0; i<medidasc02.size(); i++){
+            if (medidasc02.get(i).getCo2Aula9() >= 800){
+                contadorAula9++;
+                mapa.put("Aula9", contadorAula9);
+            }
+            if (medidasc02.get(i).getCo2Electronica() >= 800){
+                contadorElectronica++;
+                mapa.put("LElectronica", contadorElectronica);
+            }
+            if (medidasc02.get(i).getCo2Telematica() >= 800){
+                contadorTelematica++;
+                mapa.put("LTelematica", contadorTelematica);
+            }
+        }
+        System.out.println(mapa.toString());
     }
 }
