@@ -1,5 +1,8 @@
 package com.example.examenjava2021;
 
+import java.util.List;
+import java.util.Objects;
+
 public class MedidaCO2 {
     //Atributos
     private long tiempoMilisegundos;
@@ -48,5 +51,23 @@ public class MedidaCO2 {
         this.co2Aula9 = co2Aula9;
     }
 
+    //Metodos
+    public boolean registrado(List<MedidaCO2> lista){
+        for (int i = 0; i<lista.size()-1; i++){
+            if (lista.get(i).equals(this)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //Sobreescribo el metodo equals para esta clase en concreto
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MedidaCO2 medidaCO2 = (MedidaCO2) o;
+        return tiempoMilisegundos == medidaCO2.tiempoMilisegundos && co2Electronica == medidaCO2.co2Electronica && co2Telematica == medidaCO2.co2Telematica && co2Aula9 == medidaCO2.co2Aula9;
+    }
 
 }

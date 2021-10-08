@@ -47,5 +47,11 @@ public class CalidadAire {
             }
         }
         System.out.println(mapa.toString());
+        MedidaCO2 objetoPrueba1 = new MedidaCO2(1633590000000L, 650, 500, 500);
+        MedidaCO2 objetoPrueba2 = new MedidaCO2(1633586400000L, 650, 500, 350);
+        boolean resultado = objetoPrueba1.registrado(medidasc02);
+        boolean resultado2 = objetoPrueba2.registrado(medidasc02);
+        System.out.println(resultado);
+        System.out.println(resultado2);
     }
 }
