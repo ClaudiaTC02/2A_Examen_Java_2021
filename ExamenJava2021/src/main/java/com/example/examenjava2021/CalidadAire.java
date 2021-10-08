@@ -1,7 +1,9 @@
 package com.example.examenjava2021;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CalidadAire {
     // Hora local Gandia Epoch del 7.10.2021 de las 8:00 am a las 17:00 pm
@@ -17,5 +19,13 @@ public class CalidadAire {
         for (int i = 0; i<FECHA.length; i++){
             medidasc02.add(new MedidaCO2(FECHA[i], LELECTRONICA[i], LTELEMATICA[i],AULA9[i]));
         }
+        Set<Integer> conjuntoValores = new HashSet<>();
+        for (int i = 0; i<medidasc02.size(); i++){
+            conjuntoValores.add(medidasc02.get(i).getCo2Aula9());
+            conjuntoValores.add(medidasc02.get(i).getCo2Electronica());
+            conjuntoValores.add(medidasc02.get(i).getCo2Telematica());
+        }
+        System.out.println(conjuntoValores.toString());
+        System.out.println(conjuntoValores.size() + " medidas diferentes ppm de CO2 en las aulas");
     }
 }
