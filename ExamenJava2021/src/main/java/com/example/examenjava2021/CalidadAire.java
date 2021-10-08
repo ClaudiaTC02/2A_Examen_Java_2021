@@ -1,5 +1,8 @@
 package com.example.examenjava2021;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CalidadAire {
     // Hora local Gandia Epoch del 7.10.2021 de las 8:00 am a las 17:00 pm
     static long FECHA[]={1633586400000L, 1633590000000L, 1633593600000L, 1633597200000L, 1633600800000L, 1633604400000L, 1633608000000L,1633611600000L, 1633615200000L, 1633618800000L};
@@ -10,6 +13,9 @@ public class CalidadAire {
     static int AULA9[] = {450, 500, 550, 650, 700, 800, 750, 600, 650, 600};
 
     public static void main(String[] args) {
-
+        List<MedidaCO2> medidasc02 = new ArrayList<>();
+        for (int i = 0; i<FECHA.length; i++){
+            medidasc02.add(new MedidaCO2(FECHA[i], LELECTRONICA[i], LTELEMATICA[i],AULA9[i]));
+        }
     }
 }
